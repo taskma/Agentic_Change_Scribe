@@ -1,0 +1,16 @@
+services:
+  agentic-scribe:
+    build: .
+    image: agentic-changescribe:latest
+    environment:
+      LLM_BASE_URL: ${LLM_BASE_URL}
+      LLM_API_KEY: ${LLM_API_KEY}
+      LLM_MODEL: ${LLM_MODEL}
+      # Optional knobs
+      LLM_TIMEOUT_S: ${LLM_TIMEOUT_S:-60}
+      LLM_TEMPERATURE: ${LLM_TEMPERATURE:-0.2}
+    volumes:
+      - ${REPO_PATH:-.}:/repo
+      - ${OUT_PATH:-./docs/change-packs}:/out
+    working_dir: /repo
+    command: ["generate", "--repo", "/repo", "--diff", "auto", "--outdir", "/out"]

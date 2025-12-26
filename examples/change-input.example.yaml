@@ -1,0 +1,8 @@
+title: "Add retry policy for disbursement"
+summary: "Introduce exponential backoff and max-attempts for transient gateway failures."
+environment: "prod"
+service_hints:
+  - "disbursement-api"
+links:
+  ticket: "CRD-912"
+  pr: "https://github.com/org/repo/pull/184"

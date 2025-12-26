@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-changescribe"
+version = "0.1.0"
+description = "Agentic change-pack generator (Impact/Risk/Review agents) for CAB-ready briefs from git diffs."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Yiğit Çeviker (portfolio project)"}]
+dependencies = [
+  "typer>=0.12.3",
+  "rich>=13.7.1",
+  "pydantic>=2.7.0",
+  "httpx>=0.27.0",
+  "PyYAML>=6.0.1",
+]
+
+[project.scripts]
+agentic-scribe = "agentic_changescribe.cli:app"
+
+[tool.setuptools]
+packages = ["agentic_changescribe"]
