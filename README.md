@@ -135,16 +135,17 @@ Reduce flaky failures due to intermittent provider latency and make error behavi
 
 ```mermaid
 flowchart LR
-  A[Git Repo] -->|diff / commit range| B[Evidence Builder]
+  A[Git Repo] -->|diff or commit range| B[Evidence Builder]
   B --> C1[Impact Agent]
   B --> C2[Risk Agent]
   B --> C3[Reviewer Agent]
   C1 --> D[Pack Assembler]
   C2 --> D
   C3 --> D
-  D --> E[Change Pack (Markdown)]
-  D --> F[Agent Trace (JSONL)]
+  D --> E[Change Pack - Markdown]
+  D --> F[Agent Trace - JSONL]
 ```
+
 
 ---
 
